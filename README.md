@@ -2,6 +2,9 @@
 
 A simple GitHub profile analyzer built with **React**, **TypeScript**, and the **GitHub REST API**. Search any GitHub username and view basic profile statistics instantly.
 
+# Demo
+https://defnotarham.github.io/github-profile-analyzer/ 
+
 ## Features
 
 * 🔍 Search GitHub users by username
