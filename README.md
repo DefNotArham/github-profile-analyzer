@@ -1,75 +1,116 @@
-# React + TypeScript + Vite
+# GitHub Analyzer
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple GitHub profile analyzer built with **React**, **TypeScript**, and the **GitHub REST API**. Search any GitHub username and view basic profile statistics instantly.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+* 🔍 Search GitHub users by username
+* 👤 View profile information
+* 📦 Display public repository count
+* 👥 Show followers and following count
+* 🔗 Link directly to GitHub profiles
+* ⚡ Fast API-powered results
 
-## React Compiler
+## Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+* **Frontend:** React + TypeScript
+* **Styling:** Tailwind CSS
+* **API:** GitHub REST API
+* **Build Tool:** Vite
 
-## Expanding the ESLint configuration
+## Installation
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+Clone the repository:
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
+```bash
+git clone https://github.com/DefNotArham/github-analyzer.git
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Navigate into the project:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+```bash
+cd github-analyzer
+```
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+Install dependencies:
+
+```bash
+npm install
+```
+
+Start the development server:
+
+```bash
+npm run dev
+```
+
+The app will be available at:
+
+```bash
+http://localhost:5173
+```
+
+## Usage
+
+1. Enter a GitHub username in the search bar
+2. Click **Search** or press **Enter**
+3. View the user's GitHub statistics
+
+Example:
 
 ```
+Username: octocat
+
+Repos: 8
+Followers: 3000
+Following: 10
+```
+
+## API
+
+This project uses the GitHub REST API:
+
+```
+GET https://api.github.com/users/{username}
+```
+
+Example:
+
+```
+https://api.github.com/users/octocat
+```
+
+## Project Structure
+
+```
+github-analyzer/
+│
+├── src/
+│   ├── api/
+│   │   └── github.ts
+│   ├── App.tsx
+│   ├── main.tsx
+│   └── index.css
+│
+├── package.json
+└── README.md
+```
+
+## Future Improvements
+
+* [ ] Display user repositories
+* [ ] Add language statistics
+* [ ] Add repository stars/forks
+* [ ] Add loading animations
+* [ ] Add better error handling
+* [ ] Add GitHub contribution graph
+
+## Author
+
+**DefNotArham**
+
+GitHub: https://github.com/DefNotArham
+
+## License
+
+This project is open source and available under the MIT License.
